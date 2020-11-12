@@ -2,10 +2,13 @@
 name: 喜马拉雅极速版
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '*/30 * * * * '
+    - cron: '*/30 * * *'
   watch:
-    types: [started]
+    types: started
+  repository_dispatch:
+    types: bean_change
 jobs:
   build:
     runs-on: ubuntu-latest
